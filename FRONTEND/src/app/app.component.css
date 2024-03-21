@@ -1,0 +1,56 @@
+.configure-dashboard {
+    background-color: #F3F3F3; /* Making it lighter */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adding a subtle shadow for elevation */
+    margin-bottom: 0px;  /* Giving some space between this element and the grid below */
+    height: 100px;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center; 
+  }
+  
+    .button-container, 
+    .select-container {
+      margin-right: 20px; /* Adjust as necessary */
+    }
+  
+  h2 {
+    color: #292929; /* Making text darker on the lighter background */
+    margin-bottom: 25px; /* Adding some space below the title */
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px; /* Providing some space between the buttons */
+  }
+  
+  .button-container button {
+    background-color: #009A9A;
+    color: #F3F3F3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .button-container button:hover {
+    background-color: #007878; 
+  }
+  
+  
+  .button-container button:active {
+    background-color: #005555; 
+  } 
+  
+  .button-container button:disabled {
+    background-color: gray;
+  }
+  
+  #save-button{
+    background-color: #292929;
+  }
+  
+  

@@ -1,0 +1,356 @@
+/*add button, filter and search inputs CSS*/
+.configure-dashboard {
+  background-color: #F3F3F3; /* Making it lighter */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adding a subtle shadow for elevation */
+  margin-bottom: 0px;  /* Giving some space between this element and the grid below */
+  height: 100px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; /* Aligns children to the start and end */
+  padding-bottom: 20px;
+}
+
+
+h2 {
+  color: #292929; /* Making text darker on the lighter background */
+  margin-bottom: 15px; /* Adding some space below the title */
+}
+
+
+
+.filter-container {
+  flex-grow: 1; /* Takes up the available space */
+  display: flex;
+  justify-content: start; /* Align items to the left */
+  gap: 20px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filter-item select,
+.filter-item input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+.filter-item input {
+  width: 200px; /* Adjust the width as needed */
+}
+
+.filter-item select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+}
+
+.button-container button {
+  background-color: #292929;;
+  color: #F3F3F3;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 26px;
+  font-weight: bold;
+}
+
+.button-container button:hover {
+  background-color: #007979;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-item, .button-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+/*table CSS*/
+.user-table-container {
+  background-color: #f7f7f7;
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.user-table th, .user-table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Reverting font weight to normal for the first 3 columns */
+.user-table th:nth-child(-n+3), .user-table td:nth-child(-n+3) {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.user-table thead th {
+  background-color: #009A9A;
+  color: #ffffff;
+}
+
+.user-table tbody tr:hover {
+  background-color: #eeeded; /* A light grey color for hover */
+}
+
+/* Style roles with colors */
+.user-table .role {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.simple .role { background-color: #48cae4; }
+.special .role { background-color: #00b4d8; }
+.admin .role { background-color: #023e8a; }
+.long_term .role { background-color: #0096c7; }
+
+.edit-btn, .delete-btn {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust size of icons */
+  background: transparent; /* Make button background transparent */
+}
+
+.edit-btn {
+  color: #009A9A; /* Green color for edit */
+}
+
+.delete-btn {
+  color: #d0180c; /* Red color for delete */
+}
+
+/* Adjustments for icon buttons for better alignment and spacing */
+.edit-btn i, .delete-btn i {
+  pointer-events: none; /* Ignore pointer events on icons */
+}
+
+
+
+
+
+
+/* add or edit user form*/
+.model-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eaeaea;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 10000;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* distance between add and update buttons */
+.buttons-from-user-modal {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+#save-user, #update-user, #delete-user {
+  background-color: #007979; /* Turquoise */
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  font-weight: bold;
+}
+
+
+
+#close-modal,#close-popup {
+  background-color: #ad120d; /* Soft red */
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  font-weight: bold;
+}
+
+
+.buttons-from-user-modal button {
+  width: 100px;
+  height: 30px;
+  border-radius: 4px; /* Rounded corners for a modern look */
+  /* Keep other existing styles */
+}
+
+#save-user:active, #update-user:active, #close-modal:active, #delete-user:active, #close-popup:active {
+  transform: scale(0.95); /* Decrease the button size to 95% of the original when active */
+}
+
+.form-field{
+  width:450px
+}
+
+
+
+
+
+
+
+
+/*toast CSS*/
+.toast-container {
+  position: fixed;
+  z-index: 9999;
+  top: 20px;
+  right: 20px;
+  max-width: 300px;
+}
+
+/* Specific styles for success toasts */
+.toast {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  animation: slideInRight 0.5s ease-out, fadeOut 2.5s 2s ease-in-out forwards;
+  font-size: 0.9rem;
+  font-family:'Helvetica Neue', Arial, sans-serif
+}
+
+/* Modifier for success toasts */
+.toast-success {
+  color: #105922;
+  background-color: #3ccb62;
+  border-left: 5px solid #229b3f;
+}
+
+/* Modifier for error toasts */
+.toast-error {
+  color: #721c24;
+  background-color: #e51e12;
+  border-left: 5px solid #c41b0f;
+}
+
+/* Animation to slide the toast in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation to fade the toast out after display */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+}
+
+/* Media query for responsive behavior */
+@media (max-width: 600px) {
+  .toast-container {
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+}
+
+
+
+
+/*confirmation dialog CSS*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-dialog {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.confirmation-dialog p {
+  margin-bottom: 20px;
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}

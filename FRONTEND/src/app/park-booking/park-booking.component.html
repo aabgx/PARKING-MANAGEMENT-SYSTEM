@@ -1,0 +1,48 @@
+<div class="configure-dashboard">
+    <h2>Booking</h2>
+    <div class="flex-container">
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [min]="minDate" [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="onDateChange()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>{{ currentSection }}</mat-label>
+        <mat-select [(value)]="currentSection" (selectionChange)="onSectionChange($event.value)">
+          <mat-option *ngFor="let section of Sections" [value]="section">
+            {{ section.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+ 
+  <gridster [options]="options">
+    <gridster-item *ngFor="let griditem of dashboard" [item]="griditem">
+      <div [ngClass]="{
+              'grid-item-park': isParking(griditem),
+              'grid-item-road': isRoad(griditem),
+              'electric-parking': isParking(griditem) && griditem.type === 'electric',
+              'handicap-parking': isParking(griditem) && griditem.type === 'handicap',
+              'occupied': isParking(griditem) && griditem.occupied,
+              'occupiedMe': isParking(griditem) && griditem.occupied && isMyReservation(griditem)
+            }"
+           (click)="isParking(griditem) ? bookParking(griditem) : null">
+           <mat-icon *ngIf="isParking(griditem) && griditem.type === 'parking'">local_parking</mat-icon>
+           <mat-icon *ngIf="isParking(griditem) && griditem.type === 'electric'">battery_charging_full</mat-icon>
+           <mat-icon *ngIf="isParking(griditem) && griditem.type === 'handicap'">accessible</mat-icon>
+        <div class="horizontal-line" *ngIf="isRoad(griditem) && griditem.type == 'road'"></div>
+        <div class="vertical-line" *ngIf="isRoad(griditem) && griditem.type === 'intersection'"></div>
+        <div class="parking-number" *ngIf="isParking(griditem)">
+          {{ griditem.id }}
+        </div>
+  
+      </div>
+    </gridster-item>
+  </gridster>
+
+
+  

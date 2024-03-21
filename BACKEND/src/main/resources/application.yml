@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    password: Asd@$(124&^
+    username: postgres
+    url: jdbc:postgresql://16.170.162.79:5432/parking_management_system
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true

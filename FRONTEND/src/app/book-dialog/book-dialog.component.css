@@ -1,0 +1,50 @@
+/* Dialog Title */
+mat-dialog-title {
+    color: #1976d2; /* Primary color */
+    font-size: 1.5em;
+  }
+  
+  /* Dialog Content */
+  mat-dialog-content {
+    padding: 20px;
+    font-size: 1.1em;
+    color: #333; /* Dark grey for text */
+  }
+  
+  /* Dialog Actions */
+  mat-dialog-actions {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* General Button Styles */
+  button {
+    padding: 5px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white; /* White text for better readability */
+  }
+  
+  button:hover {
+    background-color: #007878; /* Darker shade for hover effect */
+  }
+  
+  /* Book Button - Using provided color */
+  button[cdkFocusInitial] {
+    background-color: #009A9A; /* Your specified color */
+    color: white;
+  }
+  
+  /* Cancel Button */
+  button:not([cdkFocusInitial]) {
+    background-color: transparent;
+    
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

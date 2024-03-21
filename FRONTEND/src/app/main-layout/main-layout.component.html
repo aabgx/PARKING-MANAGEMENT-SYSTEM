@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [style.width]="isSidenavOpened ? 'max-content' : '100px'" mode="side" opened class="sidenav">
+
+      <!-- User details -->
+      <div class="user-section" (click)="toggleSidenav()">
+        <img [src]="photoSrc" alt="User Image" class="user-image">
+        <div class="extended-info" *ngIf="isSidenavOpened">
+          <div class="user-name">{{ userName }}</div>
+          <div class="user-email">{{ userEmail }}</div>
+          <div class="user-role">{{ userRole }}</div>
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="menu-items">
+        <button mat-button (click)="toggleSidenavoff()" routerLink="/book">
+          <mat-icon>local_parking</mat-icon>
+          <span *ngIf="isSidenavOpened">Book Parking</span>
+        </button>
+        <div *ngIf="isAdmin()">
+        <button mat-button (click)="toggleSidenavoff()" routerLink="/configure">
+          <mat-icon>build</mat-icon>
+          <span *ngIf="isSidenavOpened">Configure Parking</span>
+        </button>
+        <button mat-button (click)="toggleSidenavoff()" routerLink="/users">
+          <mat-icon>person</mat-icon>
+          <span *ngIf="isSidenavOpened">Users dashboard</span>
+      </button>
+
+
+        <!--<input hidden type="file" #fileInput (change)="onFileSelected($event)">-->
+        </div>
+        <button mat-button (click)="toggleSidenavoff()" routerLink="/settings">
+          <mat-icon>settings</mat-icon>
+          <span *ngIf="isSidenavOpened">Settings</span>
+      </button>
+     </div>
+
+      <!-- Logout button -->
+
+  <button mat-button class="logout"  (click)="logout()" routerLink="/login">
+    <mat-icon>exit_to_app</mat-icon> <!-- Icon for logout -->
+    <span *ngIf="isSidenavOpened">Logout</span>
+  </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

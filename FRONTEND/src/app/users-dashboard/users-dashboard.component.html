@@ -1,0 +1,138 @@
+<!--HTML for add button and filters-->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<div class="configure-dashboard">
+  <h2>Users dashboard</h2>
+  <div class="flex-container">
+    <div class="filter-container">
+
+      <div class="filter-item">
+        <label for="userType">Filter by user type:</label>
+        <select id="userType" [(ngModel)]="userType" (change)="getUsersBySelectedUserType()">
+          <option [value]="" *ngFor="let userType of usersTypes">{{userType}}</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="userEmail">Search by email:</label>
+        <input type="text" id="userEmail" placeholder="Enter email" [(ngModel)]="enteredEmail"
+               (change)="searchByEmailInput()">
+      </div>
+      <div class="button-container">
+        <button (click)="showEditUserModal=true; showAddUserButtonInUserModal=true">Add user</button> <!-- Add button -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--HTML for the table-->
+<div class="user-table-container">
+  <table class="user-table">
+    <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>Actions</th> <!-- Header for the actions column -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users" [ngClass]="user.userType.toLowerCase()">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td><span class="role">{{ user.userType }}</span></td>
+      <td>
+        <button class="edit-btn" (click)="showUserModalAndSetUserForEdit(user)"><i class="fas fa-pencil-alt"></i>
+        </button> <!-- Edit icon -->
+        <button class="delete-btn" (click)="openConfirmationPopup(user.username)"><i class="fa fa-trash"></i></button>
+        <!-- Delete icon -->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--HTML for add/edit form-->
+<div class="model-overlay" *ngIf="showEditUserModal">
+  <div class="model">
+    <form [formGroup]="userForm">
+      <div class="input-wrapper" *ngIf="showAddUserButtonInUserModal">
+        <mat-form-field class="form-field">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" name="username" required>
+          <mat-error *ngIf="userForm.get('username')!.hasError('required')">Username required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-wrapper">
+        <mat-form-field class="form-field">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" name="phone" required>
+          <mat-error *ngIf="userForm.get('phone')!.hasError('required')">Phone required</mat-error>
+          <mat-error *ngIf="userForm.get('phone')!.hasError('pattern')">Invalid phone</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-wrapper">
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" name="email" required>
+          <mat-error *ngIf="userForm.get('email')!.hasError('required')">Email required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-wrapper">
+        <mat-form-field class="form-field">
+          <mat-label></mat-label>
+          <mat-select formControlName="userType">
+            <ng-container *ngFor="let userType of usersTypes">
+              <mat-option *ngIf="userType !== 'All Users'" [value]="userType">{{ userType }}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('userType')!.hasError('required')">User type required</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="buttons-from-user-modal">
+      <button id="save-user" *ngIf="showAddUserButtonInUserModal" (click)="saveUser()">Save</button>
+      <button id="update-user" *ngIf="showUpdateUserButtonInUserModal" (click)="modifyUser()" >Save</button>
+      <button id="close-modal" (click)="closeUserModal()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!--HTML for delete confirmation popup-->
+<div class="backdrop" *ngIf="showDeleteConfirmationPopup">
+  <div class="confirmation-dialog">
+    <p>Are you sure you want to delete this user?</p>
+    <div class="actions buttons-from-user-modal">
+      <button id="delete-user" (click)="deleteUser()">Yes</button>
+      <button id="close-popup" (click)="onCancel()">No</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!--HTML for Angular toast-->
+<div class="toast-container">
+  <!-- Success toast example -->
+  <div *ngIf="showSuccessToast" class="toast toast-success">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message">{{ toastMessage }}</span>
+  </div>
+
+  <!-- Error toast example -->
+  <div *ngIf="showErrorToast" class="toast toast-error">
+    <span class="toast-icon">×</span>
+    <span class="toast-message">{{ toastMessage }}</span>
+  </div>
+</div>
+
+
+

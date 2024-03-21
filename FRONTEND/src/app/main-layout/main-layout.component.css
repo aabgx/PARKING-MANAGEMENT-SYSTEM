@@ -1,0 +1,78 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+display: flex;
+flex-direction: column;
+background-color: #292929;
+color: #f3f3f3;
+height: 100%;
+padding-bottom: 10px;  /* Padding to give space at the bottom */
+}
+
+
+.user-section {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.1);
+}
+
+.user-name {
+font-weight: bold; /* Makes the text bolder */
+font-size: 1.2em;  /* Makes the text 1.5 times larger than the current size */
+}
+
+.user-image {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.extended-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.menu-items {
+  margin-top: 15px;
+}
+
+.menu-items button, .logout {
+display: flex;
+align-items: center;
+width: 100%;
+height: 48px;
+justify-content: flex-start;
+color: #f3f3f3;
+border-radius: 0;
+padding: 10px 15px;
+}
+
+/* Hover effect for both .menu-items buttons and the logout button */
+.menu-items button:hover, .logout:hover {
+background: rgba(243, 243, 243, 0.1);
+}
+
+/* Icons styling inside .menu-items buttons and the logout button */
+.menu-items mat-icon, .logout mat-icon {
+transform: scale(1.7);
+padding-left: 15px;
+margin-right: 32px;
+align-self: center;
+}
+
+.logout {
+  position: absolute;
+  border-top: 1px solid rgba(243, 243, 243, 0.1);
+  bottom: 10px;
+  color: #f3f3f3 !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

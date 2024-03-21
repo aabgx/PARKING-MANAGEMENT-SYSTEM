@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add New Section</h2>
+<mat-dialog-content>
+  <form #sectionForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Section Name</mat-label>
+      <input matInput [(ngModel)]="section.name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Height</mat-label>
+      <input matInput type="number" [(ngModel)]="section.height" name="height" min="20" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Width</mat-label>
+      <input matInput type="number" [(ngModel)]="section.width" name="width" min="40" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [disabled]="!sectionForm.form.valid" (click)="saveSection()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,115 @@
+.container {
+  width: 100%;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff; /* Adding a background to the container */
+}
+
+h2 {
+  text-align: center;
+  color: #009A9A; /* Darker text for better contrast */
+  margin-bottom: 20px; /* More space before the form starts */
+  font-weight:600;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Increase space between form fields */
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.95em;
+  color: #555; /* Slightly darker label color */
+  margin-bottom: 8px; /* Reduced space between label and input */
+  font-weight: 500; /* Making the labels a bit bolder */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 12px 15px; /* More padding for better touch target */
+  border: 3px solid #eaeaea; /* Subtle border */
+  border-radius: 6px; /* More rounded borders */
+  font-size: 0.9em; /* Slightly smaller font size */
+  color: #000000; /* Standard text color */
+  transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #009A9A; /* Highlight color when focused */
+  outline: none; /* Removing default focus outline */
+}
+
+.user-type {
+  display: inline-block;
+  padding: 8px;
+  background: #f7f7f7;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+
+#save-changes {
+  background-color: #009A9A;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius:4px;
+}
+
+#save-changes:hover{
+  background-color: #007979;
+}
+
+
+.role {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight:bold;
+}
+
+.animation {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInOut 3s;
+}
+
+.success-animation {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error-animation {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+.role{background-color:#009A9A}
+
+/*.role.simple { background-color: #48cae4; }*/
+/*.role.special { background-color: #00b4d8; }*/
+/*.role.admin { background-color: #023e8a; }*/
+/*.role.long_term { background-color: #0096c7; }*/
+
+
+

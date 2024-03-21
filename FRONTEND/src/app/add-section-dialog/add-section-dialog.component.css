@@ -1,0 +1,25 @@
+mat-dialog-content {
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%; /* Full width form fields */
+    margin-bottom: 20px; /* Space between fields */
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  button {
+    margin-left: 10px; /* Space between buttons */
+  }
+  
+  h2 {
+    color: #009A9A; /* Theme color for the dialog title */
+    font-weight: 600; /* Bold title */
+    margin-bottom: 20px; /* Space below the title */
+  }

@@ -1,0 +1,89 @@
+/* Container styles */
+.login-container {
+  display: flex;
+  justify-content: flex-end; /* Align children to the right */
+  align-items: center; /* Vertically center children */
+  height: 100vh;
+  background-color: #f4f4f4; /* Light grey background */
+
+}
+
+/* Card styles */
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  margin-right: calc(8%);; /* Align to the right with some space */
+  padding: 20px;
+  background-color: #fff; /* White, but can be toned down */
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2);  /* Giving depth to the card */
+  border-radius:12px;
+}
+
+/* Input field styles */
+.full-width-input {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/*.user-name-input{*/
+/*  margin-bottom:6px;*/
+/*}*/
+
+/* Forgot password link */
+.forgot-password {
+  display: block;
+  text-align: right;
+  margin-bottom: 40px;
+  color: #038c8c; /* Keeping the theme color */
+  text-decoration: none;
+}
+
+/* Login button */
+.login-button.custom-login-button {
+  background-color: #009A9A !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 10px;
+  border: none;
+  height: 50px;
+  width: 280px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:50px;
+}
+
+.login-button.custom-login-button:hover {
+  background-color: #007878 !important;
+}
+
+.background-wallpaper {
+  background-image: url('loginWallpaper.svg');
+  background-size: cover; /* or any other sizing you prefer */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* or any other height you prefer */
+  width: 100vw; /* or any other width you prefer */
+}
+
+/*:host ::ng-deep .mat-form-field {*/
+/*  background: pink; !important*/
+/*}*/
+
+.account-request-text {
+  font-weight: bold;
+  color: #333333; /* Color for the normal text */
+  padding-top: 20px;
+}
+
+.account-request-email {
+  color: #0056b3; /* Different color for the email address */
+  text-decoration: none; /* Optional: removes underline from links */
+}
+
+.account-request-email:hover {
+  text-decoration: underline; /* Optional: adds underline on hover */
+}

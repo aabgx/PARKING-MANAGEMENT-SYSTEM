@@ -1,0 +1,177 @@
+.configure-dashboard {
+  background-color: #F3F3F3; /* Making it lighter */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adding a subtle shadow for elevation */
+  margin-bottom: 0px;  /* Giving some space between this element and the grid below */
+  height: 100px;
+}
+
+
+.flex-container {
+  display: flex;
+  align-items: center; 
+}
+
+  .button-container, 
+  .select-container {
+    margin-right: 20px; /* Adjust as necessary */
+  }
+
+h2 {
+  color: #292929; /* Making text darker on the lighter background */
+  margin-bottom: 25px; /* Adding some space below the title */
+}
+
+.button-container {
+  display: flex;
+  gap: 12px; /* Providing some space between the buttons */
+}
+
+.button-container button {
+  background-color: #009A9A;
+  color: #F3F3F3;
+  border: none;
+  margin-top: 17px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #007878; 
+}
+
+
+.button-container button:active {
+  background-color: #005555; 
+} 
+
+.button-container button:disabled {
+  background-color: gray;
+}
+
+#save-button{
+  background-color: #292929;
+}
+
+
+/* grid */
+
+
+gridster {
+  background-color: #424242; /* Darker asphalt color */
+  padding: 15px;
+  height: calc(100% - 140px);
+}
+
+.grid-item-park {
+  background-color: #333333; /* Dark color for parking spaces */
+  border: 3px solid #B0BEC5; /* Border for distinction */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out icon and number */
+  align-items: center;
+  height: 100%;
+  margin: 0px; /* Margin around each parking space */
+  padding: 10px;
+}
+
+.grid-item-road{
+  background-color: #3e3e3e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out icon and number */
+  align-items: center;
+  height: 100%;
+  margin: 0px; /* Margin around each parking space */
+  padding: 10px;
+}
+
+/* Material Icon for Parking */
+mat-icon {
+  transform: scale(1.2);
+  color: #FFFFFF; /* Icon color, white for contrast */
+  align-self: center;
+  margin-top: 10px; /* Space at the top */
+}
+
+/* Parking Number */
+.parking-number {
+  color: #FFFFFF; /* Number color, white for contrast */
+  font-size: 24px; /* Readable font size */
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 20px; /* Space at the bottom */
+}
+
+.delete-button {
+  color: #FFFFFF;
+  font-size: 15px !important; /* Increased size */
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  right: 5px; /* Adjust as needed */
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px; /* Adjust for better button sizing */
+  border-radius: 4px; /* Optional for rounded corners */
+}
+
+.horizontal-line {
+  width: 100%;              /* Full width of the container */
+  height: 4px;              /* Increased thickness of the line */
+  background-image: linear-gradient(
+    to right,
+    white 33%,
+    transparent 33%,
+    transparent 66%,
+    white 66%
+  ); /* Creates a dashed effect */
+  background-size: 25px 4px; /* Size of the dashes */
+  position: absolute;
+  top: 50%;                 /* Positioning it in the middle vertically */
+  left: 0;
+  transform: translateY(-50%); /* Ensure it's centered vertically */
+}
+
+.vertical-line {
+  height: 100%;             /* Full height of the container */
+  width: 4px;               /* Increased thickness of the line */
+  background-image: linear-gradient(
+    to bottom,
+    white 33%,
+    transparent 33%,
+    transparent 66%,
+    white 66%
+  ); /* Creates a dashed effect */
+  background-size: 4px 25px; /* Size of the dashes */
+  position: absolute;
+  left: 50%;                /* Positioning it in the middle horizontally */
+  top: 0;
+  transform: translateX(-50%); /* Ensure it's centered horizontally */
+}
+
+.toggled {
+  filter: grayscale(100%); /* Adjust the filter as needed */
+}
+
+
+.grid-item-park.occupied {
+  background-color: #7f2020; /* Or any color to indicate occupation */
+}
+
+.grid-item-park.occupiedMe {
+  background-color: #cf578b; /* Or any color to indicate occupation */
+}
+
+.electric-parking {
+  background-color: #006400; /* Darkish green for electric parking */
+}
+
+.handicap-parking {
+  /* Choose a background color for handicap parking */
+  background-color: #0C47AD; /* Light blue as an example */
+}

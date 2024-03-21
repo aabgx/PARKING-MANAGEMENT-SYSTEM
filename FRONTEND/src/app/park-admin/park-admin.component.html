@@ -1,0 +1,50 @@
+<div class="configure-dashboard">
+    <h2>Configuration </h2>
+    <div class="flex-container">
+      
+      <div class="button-container">
+        <mat-form-field>
+          <mat-label>{{ currentSection }}</mat-label>
+          <mat-select [(value)]="currentSection" (selectionChange)="onSectionChange($event.value)">
+            <mat-option *ngFor="let section of Sections" [value]="section">
+              {{ section.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button  (click)="toggleaAddParking()" [ngClass]="{'toggled' : addParkingMode}">Add Parking Spaces</button>
+        <button mat-raised-button  (click)="toggleaAddRoad()" [ngClass]="{'toggled' : addRoadMode}">Add Roads</button>
+        <button mat-raised-button (click)="toggleType()" [ngClass]="{'toggled' : switchTypeMode}">Switch Type</button>
+        <button mat-raised-button (click)="openAddSectionDialog()">Add Section</button>
+        <button mat-raised-button id="delete" (click)="deleteCurrentSection()">Delete Current Section</button>
+        
+        <button mat-raised-button id="save-button" (click)="saveChanges()">Save</button>
+      </div>
+    </div>
+  </div>
+
+ 
+  <gridster [options]="options">
+    <gridster-item *ngFor="let griditem of dashboard" [item]="griditem">
+      <div [ngClass]="{
+        'grid-item-park': isParking(griditem),
+        'grid-item-road': isRoad(griditem),
+        'normal-parking': isParking(griditem) && griditem.type === 'parking',
+        'electric-parking': isParking(griditem) && griditem.type === 'electric',
+        'handicap-parking': isParking(griditem) && griditem.type === 'handicap'
+      }"
+      (click)="switchTypeMode ? toggleParkingType(griditem) : null">
+      <mat-icon *ngIf="isParking(griditem) && griditem.type === 'parking'">local_parking</mat-icon>
+      <mat-icon *ngIf="isParking(griditem) && griditem.type === 'electric'">battery_charging_full</mat-icon>
+      <mat-icon *ngIf="isParking(griditem) && griditem.type === 'handicap'">accessible</mat-icon>
+   <span class="delete-button" (click)="deleteGridItem(griditem)">x</span>
+   <div class="horizontal-line" *ngIf="isRoad(griditem) && griditem.type == 'road'"></div>
+   <div class="vertical-line" *ngIf="isRoad(griditem) && griditem.type === 'intersection'"></div>
+        <div class="parking-number" *ngIf="isParking(griditem)">
+          {{ griditem.id }}
+        </div>
+ </div>
+    </gridster-item>
+  </gridster>
+
+
+  
